@@ -1,0 +1,25 @@
+<table class="table mt-4">
+      <tr>
+        <th>Intensity</th>
+        <th>Likelihood</th>
+        <th>Relevance</th>
+        <th>Year</th>
+        <th>Country</th>
+        <th>Topics</th>
+        <th>Region</th>
+        <th>City</th>
+      </tr>
+      {% for item in Data %}
+      <tr>
+        <td>{{item.intensity}}</td>
+        <td>{{item.likelihood}}</td>
+        <td>{{item.relevance}}</td>
+        <td>{{item.year}}</td>
+        <td>{{item.country}}</td>
+        <td>{{item.topics}}</td>
+        <td>{{item.city}}</td>
+      </tr>
+      {% endfor %}
+      <!-- Data will be dynamically inserted here -->
+    </tbody>
+  </table>

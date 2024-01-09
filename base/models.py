@@ -14,4 +14,4 @@ class DataEntry(models.Model):
 
     def __str__(self):
         return f'{self.year}-{self.country}-{self.city}'
-        
+    

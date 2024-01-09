@@ -1,0 +1,202 @@
+[
+  {
+    "intensity": 8.3,
+    "likelihood": 0.8,
+    "relevance": 0.7,
+    "year": 2022,
+    "country": "Canada",
+    "topics": "Artificial Intelligence",
+    "region": "North America",
+    "city": "Toronto"
+  },
+  {
+    "intensity": 7.5,
+    "likelihood": 0.6,
+    "relevance": 0.6,
+    "year": 2021,
+    "country": "Singapore",
+    "topics": "Blockchain",
+    "region": "Asia",
+    "city": "Singapore City"
+  },
+  {
+    "intensity": 6.8,
+    "likelihood": 0.5,
+    "relevance": 0.5,
+    "year": 2023,
+    "country": "France",
+    "topics": "Renewable Energy",
+    "region": "Europe",
+    "city": "Paris"
+  },
+  {
+    "intensity": 8.1,
+    "likelihood": 0.9,
+    "relevance": 0.8,
+    "year": 2022,
+    "country": "United States",
+    "topics": "Cybersecurity",
+    "region": "North America",
+    "city": "San Francisco"
+  },
+  {
+    "intensity": 7.0,
+    "likelihood": 0.7,
+    "relevance": 0.7,
+    "year": 2021,
+    "country": "Japan",
+    "topics": "Fintech",
+    "region": "Asia",
+    "city": "Tokyo"
+  },
+  {
+    "intensity": 5.9,
+    "likelihood": 0.4,
+    "relevance": 0.6,
+    "year": 2023,
+    "country": "Spain",
+    "topics": "Sustainable Agriculture",
+    "region": "Europe",
+    "city": "Barcelona"
+  },
+  {
+    "intensity": 8.6,
+    "likelihood": 0.8,
+    "relevance": 0.9,
+    "year": 2022,
+    "country": "Australia",
+    "topics": "Machine Learning",
+    "region": "Oceania",
+    "city": "Sydney"
+  },
+  {
+    "intensity": 7.3,
+    "likelihood": 0.6,
+    "relevance": 0.7,
+    "year": 2021,
+    "country": "South Korea",
+    "topics": "E-commerce",
+    "region": "Asia",
+    "city": "Seoul"
+  },
+  {
+    "intensity": 6.2,
+    "likelihood": 0.5,
+    "relevance": 0.5,
+    "year": 2023,
+    "country": "Italy",
+    "topics": "Climate Change",
+    "region": "Europe",
+    "city": "Rome"
+  },
+  {
+    "intensity": 8.4,
+    "likelihood": 0.9,
+    "relevance": 0.8,
+    "year": 2022,
+    "country": "United States",
+    "topics": "Augmented Reality",
+    "region": "North America",
+    "city": "Los Angeles"
+  },
+  {
+    "intensity": 7.1,
+    "likelihood": 0.7,
+    "relevance": 0.7,
+    "year": 2021,
+    "country": "India",
+    "topics": "Digital Marketing",
+    "region": "Asia",
+    "city": "Delhi"
+  },
+  {
+    "intensity": 6.4,
+    "likelihood": 0.5,
+    "relevance": 0.6,
+    "year": 2023,
+    "country": "Germany",
+    "topics": "Urban Planning",
+    "region": "Europe",
+    "city": "Munich"
+  },
+  {
+    "intensity": 8.2,
+    "likelihood": 0.8,
+    "relevance": 0.9,
+    "year": 2022,
+    "country": "Canada",
+    "topics": "Data Privacy",
+    "region": "North America",
+    "city": "Vancouver"
+  },
+  {
+    "intensity": 7.4,
+    "likelihood": 0.6,
+    "relevance": 0.7,
+    "year": 2021,
+    "country": "China",
+    "topics": "Space Exploration",
+    "region": "Asia",
+    "city": "Beijing"
+  },
+  {
+    "intensity": 5.8,
+    "likelihood": 0.4,
+    "relevance": 0.6,
+    "year": 2023,
+    "country": "Netherlands",
+    "topics": "Health Tech",
+    "region": "Europe",
+    "city": "Amsterdam"
+  },
+  {
+    "intensity": 8.7,
+    "likelihood": 0.9,
+    "relevance": 0.8,
+    "year": 2022,
+    "country": "New Zealand",
+    "topics": "IoT",
+    "region": "Oceania",
+    "city": "Auckland"
+  },
+  {
+    "intensity": 7.6,
+    "likelihood": 0.7,
+    "relevance": 0.7,
+    "year": 2021,
+    "country": "Singapore",
+    "topics": "Quantum Computing",
+    "region": "Asia",
+    "city": "Singapore City"
+  },
+  {
+    "intensity": 6.1,
+    "likelihood": 0.5,
+    "relevance": 0.5,
+    "year": 2023,
+    "country": "United Kingdom",
+    "topics": "Renewable Transportation",
+    "region": "Europe",
+    "city": "London"
+  },
+  {
+    "intensity": 8.0,
+    "likelihood": 0.8,
+    "relevance": 0.9,
+    "year": 2022,
+    "country": "United States",
+    "topics": "Biotechnology",
+    "region": "North America",
+    "city": "Boston"
+  },
+  {
+    "intensity": 7.7,
+    "likelihood": 0.7,
+    "relevance": 0.8,
+  "year": 2021,
+    "country": "Australia",
+    "topics": "Cyber Physical Systems",
+    "region": "Oceania",
+    "city": "Melbourne"
+  }
+]
