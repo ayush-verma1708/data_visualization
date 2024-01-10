@@ -5,6 +5,5 @@ urlpatterns = [
     path('',getData,name="index"),
     path('homepage/',homepage , name ="homepage"),
     path('api/get-data/', get_data_api, name='get_data_api'),
-    path('dashboard/', dashboard_view, name='dashboard'),
-    
+    path('dashboard/', dashboard_view, name='dashboard'),   
 ]

@@ -10,8 +10,7 @@ from django.shortcuts import render
 def getData(request):
     if request.method == "POST":
         # Specify the path to your JSON file
-        json_file_path = '/static/base/data.json'
-
+        json_file_path = 'static/base/data.json'
         try:
             with open(json_file_path, 'r') as file:
                 json_data = json.load(file)

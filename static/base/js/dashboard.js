@@ -16,11 +16,28 @@ async function fetchDataAndRender() {
     // Render bar chart
     renderBarChart(sortedData);
 
-    // Render pie chart
-    renderPieChart(sortedData);
+    //ScatterPlot
+    renderScatterPlot(sortedData);
+
+    const topicData = sortedData.filter(
+      (entry) => entry.topics === "YourTopic"
+    );
+    renderLineChart(topicData);
   } catch (error) {
     console.error("Error fetching data:", error);
   }
+  applyFilters();
+}
+
+function applyFilters() {
+  const endYearFilter = document.getElementById("endYearFilter").value;
+  const filteredData = data.data.filter((entry) => entry.year <= endYearFilter);
+
+  // Render the filtered data
+  renderDataTable(filteredData);
+  renderBarChart(filteredData);
+  renderScatterPlot(filteredData);
+  renderLineChart(filteredData);
 }
 
 function renderDataTable(data) {
@@ -37,25 +54,34 @@ function renderDataTable(data) {
 }
 
 function renderBarChart(data) {
-  const labels = data.map((entry) => entry.city);
-  const intensityData = data.map((entry) => entry.likelihood);
+  const labels = data.map((entry) => entry.country);
+  const relevanceData = data.map((entry) => entry.relevance);
+  const likelihoodData = data.map((entry) => entry.likelihood);
 
-  var ctx = document.getElementById("myChart-bar-city").getContext("2d");
+  var ctx = document.getElementById("myChart-bar-country").getContext("2d");
   var myChart = new Chart(ctx, {
     type: "bar",
     data: {
       labels: labels,
       datasets: [
         {
-          label: "Intensity",
-          data: intensityData,
+          label: "relevance",
+          data: relevanceData,
           backgroundColor: "rgba(75, 192, 192, 0.2)",
+          borderColor: "rgba(75, 192, 192, 1)",
+          borderWidth: 1,
+        },
+        {
+          label: "likelihood",
+          data: likelihoodData,
+          backgroundColor: "rgba(75, 192, 192, 1)",
           borderColor: "rgba(75, 192, 192, 1)",
           borderWidth: 1,
         },
       ],
     },
     options: {
+      responsive: true,
       scales: {
         y: {
           beginAtZero: true,
@@ -63,57 +89,4 @@ function renderBarChart(data) {
       },
     },
   });
-}
-
-function renderPieChart(data) {
-  const ctx = document.getElementById("myChart-pie-topic").getContext("2d");
-
-  // Extract unique topics
-  const uniqueTopics = [...new Set(data.map((entry) => entry.topic))];
-
-  // Calculate the total relevance for each topic
-  const topicRelevances = uniqueTopics.map((topic) => {
-    const topicData = data.filter((entry) => entry.topic === topic);
-    const totalRelevance = topicData.reduce(
-      (sum, entry) => sum + parseFloat(entry.relevance),
-      0
-    );
-    return {
-      topic: topic,
-      totalRelevance: totalRelevance,
-    };
-  });
-
-  const myChart = new Chart(ctx, {
-    type: "pie",
-    data: {
-      labels: topicRelevances.map((entry) => entry.topic),
-      datasets: [
-        {
-          data: topicRelevances.map((entry) => entry.totalRelevance),
-          backgroundColor: topicRelevances.map(() => getRandomColor()),
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: true,
-          position: "top",
-        },
-      },
-    },
-  });
-}
-
-// Function to generate a random color for chart segments
-function getRandomColor() {
-  const letters = "0123456789ABCDEF";
-  let color = "#";
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
 }
