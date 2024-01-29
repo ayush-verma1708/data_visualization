@@ -14,15 +14,13 @@ async function fetchDataAndRender() {
     renderDataTable(sortedData);
 
     // Render bar chart
-    renderBarChart(sortedData);
+    // renderBarChart(sortedData);
 
     //ScatterPlot
-    renderScatterPlot(sortedData);
+    // renderScatterPlot(sortedData);
 
-    const topicData = sortedData.filter(
-      (entry) => entry.topics === "YourTopic"
-    );
-    renderLineChart(topicData);
+    // const topicData = sortedData.filter((entry) => entry.topic === "YourTopic");
+    // renderLineChart(topicData);
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -31,13 +29,24 @@ async function fetchDataAndRender() {
 
 function applyFilters() {
   const endYearFilter = document.getElementById("endYearFilter").value;
-  const filteredData = data.data.filter((entry) => entry.year <= endYearFilter);
 
-  // Render the filtered data
-  renderDataTable(filteredData);
-  renderBarChart(filteredData);
-  renderScatterPlot(filteredData);
-  renderLineChart(filteredData);
+  // Fetch filtered data based on the end year
+  fetch(`/filter_data?endYear=${endYearFilter}`)
+    .then((response) => response.json())
+    .then((filteredData) => {
+      // Render the filtered data
+      renderDataTable(filteredData);
+      renderBarChart(filteredData);
+      renderScatterPlot(filteredData);
+
+      const topicData = filteredData.filter(
+        (entry) => entry.topic === "YourTopic"
+      );
+      renderLineChart(topicData);
+    })
+    .catch((error) => {
+      console.error("Error fetching filtered data:", error);
+    });
 }
 
 function renderDataTable(data) {
@@ -53,40 +62,40 @@ function renderDataTable(data) {
   });
 }
 
-function renderBarChart(data) {
-  const labels = data.map((entry) => entry.country);
-  const relevanceData = data.map((entry) => entry.relevance);
-  const likelihoodData = data.map((entry) => entry.likelihood);
+// function renderBarChart(data) {
+//   const labels = data.map((entry) => entry.country);
+//   const relevanceData = data.map((entry) => entry.relevance);
+//   const likelihoodData = data.map((entry) => entry.likelihood);
 
-  var ctx = document.getElementById("myChart-bar-country").getContext("2d");
-  var myChart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          label: "relevance",
-          data: relevanceData,
-          backgroundColor: "rgba(75, 192, 192, 0.2)",
-          borderColor: "rgba(75, 192, 192, 1)",
-          borderWidth: 1,
-        },
-        {
-          label: "likelihood",
-          data: likelihoodData,
-          backgroundColor: "rgba(75, 192, 192, 1)",
-          borderColor: "rgba(75, 192, 192, 1)",
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
-}
+//   var ctx = document.getElementById("myChart-bar-country").getContext("2d");
+//   var myChart = new Chart(ctx, {
+//     type: "bar",
+//     data: {
+//       labels: labels,
+//       datasets: [
+//         {
+//           label: "relevance",
+//           data: relevanceData,
+//           backgroundColor: "rgba(75, 192, 192, 0.2)",
+//           borderColor: "rgba(75, 192, 192, 1)",
+//           borderWidth: 1,
+//         },
+//         {
+//           label: "likelihood",
+//           data: likelihoodData,
+//           backgroundColor: "rgba(75, 192, 192, 1)",
+//           borderColor: "rgba(75, 192, 192, 1)",
+//           borderWidth: 1,
+//         },
+//       ],
+//     },
+//     options: {
+//       responsive: true,
+//       scales: {
+//         y: {
+//           beginAtZero: true,
+//         },
+//       },
+//     },
+//   });
+// }

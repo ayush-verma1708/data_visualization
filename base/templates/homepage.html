@@ -1,25 +1,62 @@
-<table class="table mt-4">
-      <tr>
-        <th>Intensity</th>
-        <th>Likelihood</th>
-        <th>Relevance</th>
-        <th>Year</th>
-        <th>Country</th>
-        <th>Topics</th>
-        <th>Region</th>
-        <th>City</th>
-      </tr>
-      {% for item in Data %}
-      <tr>
-        <td>{{item.intensity}}</td>
-        <td>{{item.likelihood}}</td>
-        <td>{{item.relevance}}</td>
-        <td>{{item.year}}</td>
-        <td>{{item.country}}</td>
-        <td>{{item.topics}}</td>
-        <td>{{item.city}}</td>
-      </tr>
-      {% endfor %}
-      <!-- Data will be dynamically inserted here -->
-    </tbody>
-  </table>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- Add Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+  </head>
+
+  <body>
+  
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" >
+          <h2>Data Dashboard</h2>
+          <div class="table-responsive">
+            <table class="table mt-4">
+              <tr>
+                <th>End Year</th>
+                <th>Start Year</th>
+                <th>Intensity</th>
+                <th>Likelihood</th>
+                <th>Relevance</th>
+                <th>Year</th>
+                <th>Country</th>
+                <th>Topics</th>
+                <th>Region</th>
+              </tr>
+              {% for item in Data %}
+              <tr>
+                <td>{{item.end_year}}</td>
+                <td>{{item.start_year}}</td>
+                <td>{{item.intensity}}</td>
+                <td>{{item.likelihood}}</td>
+                <td>{{item.relevance}}</td>
+                <td>{{item.country}}</td>
+                <td>{{item.topic}}</td>
+                <th>{{item.region}}</th>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+    <!-- Add Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#endYearInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function () {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        });
+      });
+    });
+  </script>
+</html>
